@@ -44,23 +44,23 @@ module.exports = {
     {
       resolve: `gatsby-source-git`,
       options: {
+        name: `repo-two`,
+        remote: `https://bitbucket.org/stevetweeddale/markdown-test.git`,
+        // Multiple patterns and negation supported. See https://github.com/mrmlnc/fast-glob
+        patterns: [`*.md`, `!*.js`]
+      },
+    },
+    {
+      resolve: `gatsby-source-git`,
+      options: {
         name: `repo-one`,
         remote: `https://bitbucket.org/stevetweeddale/markdown-test.git`,
         // Optionally supply a branch. If none supplied, you'll get the default branch.
         branch: `develop`,
         // Tailor which files get imported eg. import the docs folder from a codebase.
         patterns: `docs/**`
-      }
+      },
     },
-    {
-      resolve: `gatsby-source-git`,
-      options: {
-        name: `repo-two`,
-        remote: `https://bitbucket.org/stevetweeddale/markdown-test.git`,
-        // Multiple patterns and negation supported. See https://github.com/mrmlnc/fast-glob
-        patterns: [`*`, `!*.md`]
-      }
-    }
   ]
 };
 ```
