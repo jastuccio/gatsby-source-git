@@ -1,9 +1,20 @@
+// A light weight interface for running git commands in any node.js application.  npmjs.com/package/simple-git
 const Git = require("simple-git/promise");
+
+// Match files using the patterns the shell uses. npmjs.com/package/fast-glob
 const fastGlob = require("fast-glob");
+
+// Node.js file system module allows you to work with the file system
 const fs = require("fs");
+
+// The Gatsby source filesystem plugin
 const { createFileNode } = require("gatsby-source-filesystem/create-file-node");
+
+// npmjs.com/package/git-url-parse
 const GitUrlParse = require("git-url-parse");
 
+
+//trim() removes whitespace from both ends of a string.  developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
 async function isAlreadyCloned(remote, path) {
   const existingRemote = await Git(path).listRemote(["--get-url"]);
   return existingRemote.trim() == remote.trim();
